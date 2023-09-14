@@ -15,7 +15,7 @@ const Hero = () => {
         ></div>
         <div
           className="absolute inset-0 z-0"
-          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1512917774080-9991f1c4c750?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3wyNjI5NjF8MHwxfHNlYXJjaHwyNnx8VmlsbGElMjBSZW50aW5nfGVufDB8fHx8MTY5MzMyOTM2Nnww&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080")', backgroundPosition: 'center center', backgroundSize: 'cover'}}
+          style={{ backgroundImage: 'url("/hero.jfif")', backgroundPosition: 'center center', backgroundSize: 'cover'}}
         ></div>
       </div>
       <div className="relative z-10 container mx-auto px-6 pt-12 lg:pt-40 pb-12 lg:pb-40">
