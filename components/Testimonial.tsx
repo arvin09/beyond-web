@@ -1,11 +1,10 @@
 import React from "react";
-import Image from "next/image";
 
 const Testimonial = () => {
   return (
     <section
       id="quote"
-      className="relative z-10 flex flex-none flex-shrink-0 items-center"
+      className="relative z-10 flex flex-none flex-shrink-0 items-center p-4"
     >
       <div className="relative z-10 container mx-auto testimonials-carousel pt-12 lg:pt-20 pb-12 lg:pb-20">
         <div className="flex h-full my-auto">
