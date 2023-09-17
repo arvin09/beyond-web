@@ -6,12 +6,12 @@ const Card = () => {
     <div className='pb-4'>
         <a
             href="#"
-            className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+            className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-3xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
           >
             <Image
-              className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-40 md:rounded-none md:rounded-l-lg"
+              className="object-cover rounded-t-lg h-60 md:h-52 md:w-30 md:rounded-none md:rounded-all p-4"
               src="/image-4.jpg"
-              width={192}
+              width={300}
               height={256}
               alt=""
             />
