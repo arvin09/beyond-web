@@ -3,7 +3,7 @@ import { Card } from "@/components";
 import { villaListing } from "@/constants";
 export default function listing() {
   return (
-    <div >
+    <div>
       <div
         className="hidden sm:block "
         style={{
@@ -23,12 +23,9 @@ export default function listing() {
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap-reverse md:flex-wrap justify-center">
-        <div>
-          {/* <Card></Card>
-          <Card></Card> */}
+      <div className="flex flex-wrap-reverse md:flex-wrap justify-around">
+        <div className="w-full md:w-2/3">
           { villaListing.map((villa) => (
-            // <div key={villa.id}>{villa.name}</div>
             <Card key={villa.id} details={villa} image={`${villa.id}-villa.jpeg`}></Card>
           ))}
         </div>
@@ -110,7 +107,7 @@ export default function listing() {
               </div>
               <button
                 type="submit"
-                className="text-white uppercase bg-teal-500 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-500 dark:focus:ring-teal-800"
+                className="text-white uppercase bg-teal-500 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium text-sm w-full px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-500 dark:focus:ring-teal-800"
               >
                 Submit
               </button>
