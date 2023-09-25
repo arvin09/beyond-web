@@ -1,7 +1,23 @@
-import Image from "next/image";
+"use client";
 import React from "react";
+import Image from "next/image";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 const details = () => {
+  const handleNavClick = (button: string) => {
+    const carousal = document.querySelector(".carousal");
+    const images = document.querySelectorAll(".carousal .card-container");
+    const scrollWidth = images[0].clientWidth + 50;
+
+    if (carousal) {
+      if (button === "next") {
+        carousal.scrollLeft += scrollWidth;
+      } else {
+        carousal.scrollLeft -= scrollWidth;
+      }
+    }
+  };
+
   return (
     <div>
       <div
@@ -15,12 +31,12 @@ const details = () => {
         }}
       ></div>
       <div className="flex flex-wrap justify-around">
-        <div className="p-4 w-full md:w-2/3">
+        <div className="p-4 w-full xl:w-2/3">
           <div>
             <h1 className="font-semibold font-quicksand text-3xl">
               Silvio Villa
             </h1>
-            <div>Assagaon, Goa, India</div>
+            <div className="text-sm">Assagaon, Goa, India</div>
             <div className="flex text-md py-3 border-b">
               <div className="pr-1">Up to 8 guest</div>
               <div className="px-1">3 Bedroom</div>
@@ -29,45 +45,70 @@ const details = () => {
             </div>
           </div>
           <div className="py-3 border-b">
-            <h1 className="text-2xl">Bedroom Details</h1>
-            <div className="flex max-w-7xl gap-4">
-              <div className="bg-white border border-gray-200 rounded-lg shadow-lg">
+            <div className="pb-2 flex justify-between">
+              <div className="text-2xl ">Bedroom Details</div>
+              <div className="text-lg">
+                <button
+                  className="mr-8 shadow-lg rounded-3xl bg-teal-500 p-2 hover:bg-teal-800"
+                  onClick={() => handleNavClick("prev")}
+                >
+                  <ChevronLeftIcon
+                    title="Previous"
+                    className="h-5 w-5 text-white"
+                  />
+                </button>
+                <button
+                  className="shadow-lg rounded-3xl bg-teal-500 p-2 hover:bg-teal-800"
+                  onClick={() => handleNavClick("next")}
+                >
+                  <ChevronRightIcon title="Next" className="h-5 w-5 text-white">
+                    Next
+                  </ChevronRightIcon>
+                </button>
+              </div>
+            </div>
+            <div className="flex justify-between overflow-x-hidden gap-4 scroll-smooth carousal">
+              <div className="card-container bg-white border border-gray-200 rounded-lg shadow-lg md:basis-1/3 shrink-0">
                 <Image
-                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4"
+                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4 w-full"
                   src="/hero.jfif"
-                  width={300}
-                  height={256}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  //   style={{ width: '100%', height: 'auto' }} // optional
                   alt=""
                 />
               </div>
-              <div className="bg-white border border-gray-200 rounded-lg shadow-lg">
+              <div className="card-container bg-white border border-gray-200 rounded-lg shadow-lg md:basis-1/3 shrink-0">
                 <Image
-                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4"
+                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4 w-full"
                   src="/hero.jfif"
-                  width={300}
-                  height={256}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
                   alt=""
                 />
               </div>
-              <div className="bg-white border border-gray-200 rounded-lg shadow-lg">
+              <div className="card-container bg-white border border-gray-200 rounded-lg shadow-lg md:basis-1/3 shrink-0">
                 <Image
-                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4"
+                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4 w-full"
                   src="/hero.jfif"
-                  width={300}
-                  height={256}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
                   alt=""
                 />
               </div>
-              <div className="bg-white border border-gray-200 rounded-lg shadow-lg">
+              <div className="card-container bg-white border border-gray-200 rounded-lg shadow-lg md:basis-1/3 shrink-0">
                 <Image
-                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4"
+                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4 w-full"
                   src="/hero.jfif"
-                  width={300}
-                  height={256}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
                   alt=""
                 />
               </div>
-              
             </div>
           </div>
           <div className="py-3 border-b">
