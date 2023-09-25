@@ -1,7 +1,20 @@
+import React, { MouseEventHandler } from "react";
 import Image from "next/image";
-import React from "react";
 
 const details = () => {
+
+    const handleNavClick = (button:string) => {
+        const carousal = document.querySelector(".carousal"); 
+        const images = document.querySelectorAll(".carousal .card-container");
+        const scrollWidth = images[0].clientWidth + 40;
+
+        if(button === "next") {
+            carousal.scrollLeft += scrollWidth;
+        } else {
+            carousal.scrollLeft -= scrollWidth;
+        }
+    }
+
   return (
     <div>
       <div
@@ -15,7 +28,7 @@ const details = () => {
         }}
       ></div>
       <div className="flex flex-wrap justify-around">
-        <div className="p-4 w-full md:w-2/3">
+        <div className="p-4 w-full xl:w-2/3">
           <div>
             <h1 className="font-semibold font-quicksand text-3xl">
               Silvio Villa
@@ -29,45 +42,62 @@ const details = () => {
             </div>
           </div>
           <div className="py-3 border-b">
-            <h1 className="text-2xl">Bedroom Details</h1>
-            <div className="flex max-w-7xl gap-4">
-              <div className="bg-white border border-gray-200 rounded-lg shadow-lg">
+            <div className="pb-4 flex justify-between">
+                <div className="text-2xl ">Bedroom Details</div>
+                <div className="text-lg pt-2">
+                    <button className="mr-4" onClick={() => handleNavClick("prev")}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+</button>
+                    <button className="" onClick={() => handleNavClick("next")}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+</button>
+                </div>
+            </div>
+            <div className="flex justify-between overflow-x-hidden gap-4 scroll-smooth carousal">
+              <div className="card-container bg-white border border-gray-200 rounded-lg shadow-lg md:basis-1/3 shrink-0">
                 <Image
-                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4"
+                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4 w-full"
                   src="/hero.jfif"
-                  width={300}
-                  height={256}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                //   style={{ width: '100%', height: 'auto' }} // optional
                   alt=""
                 />
               </div>
-              <div className="bg-white border border-gray-200 rounded-lg shadow-lg">
+              <div className="card-container bg-white border border-gray-200 rounded-lg shadow-lg md:basis-1/3 shrink-0">
                 <Image
-                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4"
+                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4 w-full"
                   src="/hero.jfif"
-                  width={300}
-                  height={256}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
                   alt=""
                 />
               </div>
-              <div className="bg-white border border-gray-200 rounded-lg shadow-lg">
+              <div className="card-container bg-white border border-gray-200 rounded-lg shadow-lg md:basis-1/3 shrink-0">
                 <Image
-                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4"
+                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4 w-full"
                   src="/hero.jfif"
-                  width={300}
-                  height={256}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
                   alt=""
                 />
               </div>
-              <div className="bg-white border border-gray-200 rounded-lg shadow-lg">
+              <div className="card-container bg-white border border-gray-200 rounded-lg shadow-lg md:basis-1/3 shrink-0">
                 <Image
-                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4"
+                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4 w-full"
                   src="/hero.jfif"
-                  width={300}
-                  height={256}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
                   alt=""
                 />
               </div>
-              
+             
             </div>
           </div>
           <div className="py-3 border-b">
