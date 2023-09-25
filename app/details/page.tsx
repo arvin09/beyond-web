@@ -1,19 +1,20 @@
-import React, { MouseEventHandler } from "react";
+"use client"
+import React from "react";
 import Image from "next/image";
+import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from '@heroicons/react/24/solid'
 
 const details = () => {
+  const handleNavClick = (button: string) => {
+    const carousal = document.querySelector(".carousal");
+    const images = document.querySelectorAll(".carousal .card-container");
+    const scrollWidth = images[0].clientWidth + 40;
 
-    const handleNavClick = (button:string) => {
-        const carousal = document.querySelector(".carousal"); 
-        const images = document.querySelectorAll(".carousal .card-container");
-        const scrollWidth = images[0].clientWidth + 40;
-
-        if(button === "next") {
-            carousal.scrollLeft += scrollWidth;
-        } else {
-            carousal.scrollLeft -= scrollWidth;
-        }
+    if (button === "next") {
+      carousal.scrollLeft += scrollWidth;
+    } else {
+      carousal.scrollLeft -= scrollWidth;
     }
+  };
 
   return (
     <div>
@@ -42,18 +43,16 @@ const details = () => {
             </div>
           </div>
           <div className="py-3 border-b">
-            <div className="pb-4 flex justify-between">
-                <div className="text-2xl ">Bedroom Details</div>
-                <div className="text-lg pt-2">
-                    <button className="mr-4" onClick={() => handleNavClick("prev")}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>
-</button>
-                    <button className="" onClick={() => handleNavClick("next")}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>
-</button>
-                </div>
+            <div className="pb-2 flex justify-between">
+              <div className="text-2xl ">Bedroom Details</div>
+              <div className="text-lg">
+                <button className="mr-8" onClick={() => handleNavClick("prev")}>
+                  <ArrowLeftCircleIcon title="Previous" className="h-10 w-10 text-teal-500" />
+                </button>
+                <button className="" onClick={() => handleNavClick("next")}>
+                  <ArrowRightCircleIcon title="Next" className="h-10 w-10 text-teal-500" />
+                </button>
+              </div>
             </div>
             <div className="flex justify-between overflow-x-hidden gap-4 scroll-smooth carousal">
               <div className="card-container bg-white border border-gray-200 rounded-lg shadow-lg md:basis-1/3 shrink-0">
@@ -63,7 +62,7 @@ const details = () => {
                   width={0}
                   height={0}
                   sizes="100vw"
-                //   style={{ width: '100%', height: 'auto' }} // optional
+                  //   style={{ width: '100%', height: 'auto' }} // optional
                   alt=""
                 />
               </div>
@@ -97,7 +96,6 @@ const details = () => {
                   alt=""
                 />
               </div>
-             
             </div>
           </div>
           <div className="py-3 border-b">
