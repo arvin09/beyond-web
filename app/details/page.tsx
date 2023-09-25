@@ -1,18 +1,20 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
-import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from '@heroicons/react/24/solid'
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 const details = () => {
   const handleNavClick = (button: string) => {
     const carousal = document.querySelector(".carousal");
     const images = document.querySelectorAll(".carousal .card-container");
-    const scrollWidth = images[0].clientWidth + 40;
+    const scrollWidth = images[0].clientWidth + 50;
 
-    if (button === "next") {
-      carousal.scrollLeft += scrollWidth;
-    } else {
-      carousal.scrollLeft -= scrollWidth;
+    if (carousal) {
+      if (button === "next") {
+        carousal.scrollLeft += scrollWidth;
+      } else {
+        carousal.scrollLeft -= scrollWidth;
+      }
     }
   };
 
@@ -34,7 +36,7 @@ const details = () => {
             <h1 className="font-semibold font-quicksand text-3xl">
               Silvio Villa
             </h1>
-            <div>Assagaon, Goa, India</div>
+            <div className="text-sm">Assagaon, Goa, India</div>
             <div className="flex text-md py-3 border-b">
               <div className="pr-1">Up to 8 guest</div>
               <div className="px-1">3 Bedroom</div>
@@ -46,11 +48,22 @@ const details = () => {
             <div className="pb-2 flex justify-between">
               <div className="text-2xl ">Bedroom Details</div>
               <div className="text-lg">
-                <button className="mr-8" onClick={() => handleNavClick("prev")}>
-                  <ArrowLeftCircleIcon title="Previous" className="h-10 w-10 text-teal-500" />
+                <button
+                  className="mr-8 shadow-lg rounded-3xl bg-teal-500 p-2 hover:bg-teal-800"
+                  onClick={() => handleNavClick("prev")}
+                >
+                  <ChevronLeftIcon
+                    title="Previous"
+                    className="h-5 w-5 text-white"
+                  />
                 </button>
-                <button className="" onClick={() => handleNavClick("next")}>
-                  <ArrowRightCircleIcon title="Next" className="h-10 w-10 text-teal-500" />
+                <button
+                  className="shadow-lg rounded-3xl bg-teal-500 p-2 hover:bg-teal-800"
+                  onClick={() => handleNavClick("next")}
+                >
+                  <ChevronRightIcon title="Next" className="h-5 w-5 text-white">
+                    Next
+                  </ChevronRightIcon>
                 </button>
               </div>
             </div>
