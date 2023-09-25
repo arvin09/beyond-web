@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import { LockClosedIcon, MusicalNoteIcon, PuzzlePieceIcon,  TrashIcon, UserGroupIcon} from "@heroicons/react/24/outline";
 
 const details = () => {
   const handleNavClick = (button: string) => {
@@ -114,21 +115,88 @@ const details = () => {
           <div className="py-3 border-b">
             <h1 className="text-2xl">In House Activities</h1>
             <ul className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
-              <li>Board Games</li>
-              <li>Music Player</li>
-              <li>Oven</li>
-              <li>Security</li>
-              <li>Sheets & Towels</li>
-              <li>Housekeeping</li>
-              <li>Gas Hob</li>
-              <li>Coffee Machine</li>
-              <li>Caretaker</li>
-              <li>Toiletries</li>
+              
+              <li className="flex justify-start">
+                <span className="border border-gray-950 rounded-3xl p-1 mr-2"><PuzzlePieceIcon className="h-4 w-4 text-black" /></span>
+                <span>Board Games</span>
+              </li>
+              <li className="flex justify-start">
+                <span className="border border-gray-950 rounded-3xl p-1 mr-2"><MusicalNoteIcon className="h-4 w-4 text-black" /></span>
+                <span>Music Player</span>
+              </li>
+              <li className="flex justify-start">
+                <span className="mr-2">
+                    <Image 
+                     src="/oven.svg" 
+                     alt=""
+                     width={26}
+                     height={26}
+                    />
+                </span>
+                <span>Oven</span>
+              </li>
+              <li className="flex justify-start">
+                <span className="border border-gray-950 rounded-3xl p-1 mr-2"><LockClosedIcon className="h-4 w-4 text-black" /></span>
+                <span>Security</span>
+              </li>
+              <li className="flex justify-start">
+                <span className="mr-2">
+                    <Image 
+                     src="/sheet-towel.svg" 
+                     alt=""
+                     width={26}
+                     height={26}
+                    />
+                </span>
+                <span>Sheets & Towels</span>
+              </li>
+              <li className="flex justify-start">
+                <span className="border border-gray-950 rounded-3xl p-1 mr-2"><TrashIcon className="h-4 w-4 text-black" /></span>
+                <span>Housekeeping</span>
+              </li>
+              <li className="flex justify-start">
+                <span className="mr-2">
+                    <Image 
+                     src="/gas-hob.svg" 
+                     alt=""
+                     width={26}
+                     height={26}
+                    />
+                </span>
+                <span>Gas Hob</span>
+              </li>
+              <li className="flex justify-start">
+                <span className="mr-2">
+                    <Image 
+                     src="/coffee-machine.svg" 
+                     alt=""
+                     width={26}
+                     height={26}
+                    />
+                </span>
+                <span>Coffee Machine</span>
+              </li>
+              <li className="flex justify-start">
+                <span className="border border-gray-950 rounded-3xl p-1 mr-2"><UserGroupIcon className="h-4 w-4 text-black" /></span>
+                <span>Caretaker</span>
+              </li>
+              <li className="flex justify-start">
+                <span className="mr-2">
+                    <Image 
+                     src="/tooth-brush.svg" 
+                     alt=""
+                     width={26}
+                     height={26}
+                    />
+                </span>
+                <span>Toiletries</span>
+              </li>
+
             </ul>
           </div>
           <div className="py-3 border-b">
             <h1 className="text-2xl pb-2">House rules</h1>
-            <ul className="text-sm/[14px]">
+            <ul className="text-sm">
               <li className="pl-4 py-1.5 -indent-4 before:contents before:content-['-'] tracking-wide">
                 &nbsp;&nbsp;Lost and found items are held for 14 days while we
                 attempt to contact the guest. If guest contact information is
@@ -163,7 +231,7 @@ const details = () => {
           </div>
           <div className="py-3">
             <h1 className="text-2xl pb-2">Cancellation policy</h1>
-            <ul className="text-sm/[14px]">
+            <ul className="text-sm">
               <li className="pl-4 py-1 -indent-4 before:contents before:content-['-'] tracking-wide">
                 &nbsp;&nbsp;For cancellations made up to 15 days prior to the
                 check-in date, 80%* of the booking amount will be refunded via
