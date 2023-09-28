@@ -23,9 +23,8 @@ interface CardProps {
 const Card = ({details, image} : CardProps) => {
   return (
     <div className="p-4">
-      <a
-        href="#"
-        className="flex flex-col bg-white border border-gray-200 rounded-lg shadow md:flex-row max-w-4xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+      <div
+        className="flex flex-col bg-white border border-gray-200 rounded-lg shadow md:flex-row max-w-4xl"
       >
         <Image
           className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4 w-full md:w-2/5"
@@ -67,7 +66,7 @@ const Card = ({details, image} : CardProps) => {
             </div>
           </div>
         </div>
-      </a>
+      </div>
     </div>
   );
 };
