@@ -4,6 +4,8 @@ import Testimonial from "./Testimonial";
 import Navbar from "./Navbar";
 import Featured from "./Featured";
 import Card from "./Card";
+import Filter from "./Filter";
+import DatePickerFilter from "./DatePickerFilter";
 
 export {
     Navbar,
@@ -11,5 +13,7 @@ export {
     Testimonial,
     Featured,
     Footer,
-    Card
+    Card,
+    Filter,
+    DatePickerFilter
 }
