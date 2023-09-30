@@ -6,6 +6,8 @@ import Featured from "./Featured";
 import Card from "./Card";
 import Filter from "./Filter";
 import DatePickerFilter from "./DatePickerFilter";
+import SelectFilter from "./SelectFilter";
+import Counter from "./Counter"
 
 export {
     Navbar,
@@ -15,5 +17,7 @@ export {
     Footer,
     Card,
     Filter,
-    DatePickerFilter
+    DatePickerFilter,
+    SelectFilter,
+    Counter
 }
