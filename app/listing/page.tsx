@@ -1,28 +1,10 @@
 
-import { Card } from "@/components";
+import { Card, Filter } from "@/components";
 import { villaListing } from "@/constants";
 export default function listing() {
   return (
     <div>
-      <div
-        className="hidden sm:block "
-        style={{
-          backgroundImage: 'url("/bg-coco.png")',
-          backgroundPosition: "top center",
-          backgroundSize: "cover",
-          height: "200px",
-        }}
-      >
-        <div className="grid grid-cols-5 px-10 lg:px-32 2xl:96 py-20">
-          <div className="border p-5 bg-white rounded-l-lg">Goa</div>
-          <div className="border p-5 bg-white ">Check In Date</div>
-          <div className="border p-5 bg-white ">Check Out Date</div>
-          <div className="border p-5 bg-white ">Select guests</div>
-          <div className="w-full rounded-r-lg focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300  text-xl p-5 text-center cursor-pointer dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 font-dancing-script font-semibold align-middle">
-            Search
-          </div>
-        </div>
-      </div>
+      <Filter />
       <div className="flex flex-wrap-reverse md:flex-wrap justify-around">
         <div className="w-full md:w-2/3">
           { villaListing.map((villa) => (

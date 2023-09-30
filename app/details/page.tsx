@@ -2,7 +2,8 @@
 import React from "react";
 import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import { LockClosedIcon, MusicalNoteIcon, PuzzlePieceIcon,  TrashIcon, UserGroupIcon} from "@heroicons/react/24/outline";
+import { LockClosedIcon, MusicalNoteIcon, PuzzlePieceIcon,  TrashIcon, UserGroupIcon, WifiIcon} from "@heroicons/react/24/outline";
+import { BreadSlice, Swimmer, CalendarCheck, Soap, MugHotAlt, Bed } from "react-flaticons";
 
 const details = () => {
   const handleNavClick = (button: string) => {
@@ -33,18 +34,41 @@ const details = () => {
       ></div>
       <div className="flex flex-wrap justify-around">
         <div className="p-4 w-full xl:w-2/3">
-          <div>
+          <div className="border-b">
             <h1 className="font-semibold font-quicksand text-3xl">
               Silvio Villa
             </h1>
             <div className="text-sm">Assagaon, Goa, India</div>
             <div className="flex text-md py-3 border-b">
-              <div className="pr-1">Up to 8 guest</div>
-              <div className="px-1">3 Bedroom</div>
-              <div className="px-1">3 Bathroom</div>
-              <div className="pl-1">1 Pool</div>
+              <div className="border-r-2 pr-2">Up to 8 guest</div>
+              <div className="border-r-2 px-2">3 Bedroom</div>
+              <div className="border-r-2 px-2">3 Bathroom</div>
+              <div className="pl-2">1 Pool</div>
             </div>
           </div>
+          {/* House Activities  */}
+          <div className="py-3 border-b">
+            <ul className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-3">
+              
+              <li className="flex justify-start">
+                <span className="p-1 mr-2"><BreadSlice  size='16px' color="gray" /></span>
+                <span>Complimentary Breakfast</span>
+              </li>
+              <li className="flex justify-start">
+                <span className="p-1 mr-2"><WifiIcon className="h-4 w-4 text-black" /></span>
+                <span>Unlimited WiFi</span>
+              </li>
+              <li className="flex justify-start">
+                <span className="p-1 mr-2"><Swimmer size='16px' color="gray" /></span>
+                <span>Private Pool</span>
+              </li>
+              <li className="flex justify-start w-full">
+                <span className="p-1 mr-2"><CalendarCheck size='16px' color="gray" /></span>
+                <span className="absolute pl-8">Check In - 2 PM | Check Out - 11 AM</span>
+              </li>
+            </ul>
+          </div>
+          {/* Bedroom Details */}
           <div className="py-3 border-b">
             <div className="pb-2 flex justify-between">
               <div className="text-2xl ">Bedroom Details</div>
@@ -112,6 +136,7 @@ const details = () => {
               </div>
             </div>
           </div>
+          {/* House Activities  */}
           <div className="py-3 border-b">
             <h1 className="text-2xl">In House Activities</h1>
             <ul className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
@@ -140,13 +165,8 @@ const details = () => {
                 <span>Security</span>
               </li>
               <li className="flex justify-start">
-                <span className="mr-2">
-                    <Image 
-                     src="/sheet-towel.svg" 
-                     alt=""
-                     width={26}
-                     height={26}
-                    />
+              <span className="border border-gray-950 rounded-3xl p-1 mr-2">
+                    <Bed  size='16px' color="gray" />
                 </span>
                 <span>Sheets & Towels</span>
               </li>
@@ -166,13 +186,8 @@ const details = () => {
                 <span>Gas Hob</span>
               </li>
               <li className="flex justify-start">
-                <span className="mr-2">
-                    <Image 
-                     src="/coffee-machine.svg" 
-                     alt=""
-                     width={26}
-                     height={26}
-                    />
+              <span className="border border-gray-950 rounded-3xl p-1 mr-2">
+                    <MugHotAlt  size='16px' color="gray" />
                 </span>
                 <span>Coffee Machine</span>
               </li>
@@ -181,19 +196,15 @@ const details = () => {
                 <span>Caretaker</span>
               </li>
               <li className="flex justify-start">
-                <span className="mr-2">
-                    <Image 
-                     src="/tooth-brush.svg" 
-                     alt=""
-                     width={26}
-                     height={26}
-                    />
+                <span className="border border-gray-950 rounded-3xl p-1 mr-2">
+                    <Soap  size='16px' color="gray" />
                 </span>
                 <span>Toiletries</span>
               </li>
 
             </ul>
           </div>
+          {/* House Policy */}
           <div className="py-3 border-b">
             <h1 className="text-2xl pb-2">House rules</h1>
             <ul className="text-sm">
@@ -229,6 +240,7 @@ const details = () => {
               </li>
             </ul>
           </div>
+          {/* Cancellation Policy */}
           <div className="py-3">
             <h1 className="text-2xl pb-2">Cancellation policy</h1>
             <ul className="text-sm">
