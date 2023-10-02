@@ -7,7 +7,8 @@ import Card from "./Card";
 import Filter from "./Filter";
 import DatePickerFilter from "./DatePickerFilter";
 import SelectFilter from "./SelectFilter";
-import Counter from "./Counter"
+import Counter from "./Counter";
+import ContactForm from "./ContactForm";
 
 export {
     Navbar,
@@ -19,5 +20,6 @@ export {
     Filter,
     DatePickerFilter,
     SelectFilter,
-    Counter
+    Counter,
+    ContactForm
 }

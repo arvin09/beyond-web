@@ -53,20 +53,21 @@ const DatePickerFilter = ({placeholder, options}: DatePickerFilterProps) => {
         show={show}
         setShow={handleClose}
       >
-        <div className="flex">
-          <div className="">
-            <CalendarIcon className="h-6 w-6" />
-          </div>
-          <input
+        <div className="flex justify-self-center xl:justify-around bg-transparent">
+          <div className="flex">
+            <CalendarIcon className="h-6 w-6 " />
+            <input
             ref={InputRef}
             type="text"
-            className="text-md border-0 font-quicksand pointer-events-none pl-2 p-0 w-[170px]"
+            className="text-md border-0 font-quicksand pointer-events-none pl-2 p-0 bg-transparent"
             placeholder={placeholder}
             value={selectedDate?.toLocaleDateString("en-GB")}
             onFocus={() => setShow(true)}
             readOnly
           />
-          <div className="pt-1"><ChevronDownIcon className="h-4 w-4 "/></div>
+          </div>
+          
+          <div className="pt-1 justify-end"><ChevronDownIcon className="h-4 w-4 hidden xl:block"/></div>
         </div>
       </Datepicker>
     </div>
