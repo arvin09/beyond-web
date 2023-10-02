@@ -1,3 +1,4 @@
+import React from "react";
 import { DatePickerFilter, SelectFilter } from ".";
 
 const Filter = () => {
@@ -11,7 +12,7 @@ const Filter = () => {
         height: "200px",
       }}
     >
-      <div className="grid grid-cols-5 px-10 lg:px-32 2xl:96 py-20">
+      <div className="grid grid-cols-5 px-10 lg:px-32  py-20">
         <div className="border p-5 bg-white rounded-l-lg">Goa</div>
         <div className="border p-5 bg-white">
           <DatePickerFilter placeholder= "Check-In"/>
