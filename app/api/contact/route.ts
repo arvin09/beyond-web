@@ -44,5 +44,5 @@ export async function POST(request: NextRequest, response:NextResponse) {
       return true
   })
 
-  return new Response('Success');
+  return new Response(JSON.stringify(mailData));
 }
