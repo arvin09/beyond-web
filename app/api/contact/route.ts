@@ -36,13 +36,13 @@ export async function POST(request: NextRequest, response:NextResponse) {
   console.log(mailData)
 
   // TODO: uncomment when production ready
-  // transporter.sendMail(mailData, function (err, info) {
-  //   if(err)
-  //     console.log(err)
-  //   else
-  //     console.log("Email sent", info)
-  //     return true
-  // })
+  transporter.sendMail(mailData, function (err, info) {
+    if(err)
+      console.log(err)
+    else
+      console.log("Email sent", info)
+      return true
+  })
 
   return new Response('Success');
 }
