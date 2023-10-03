@@ -10,7 +10,7 @@ const ContactForm = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    const form:HTMLFormElement = document.getElementById('contact-form');
+    const form:any = document.getElementById('contact-form');
     if(form?.checkValidity()) {
         setIsFormValid(true)
         let data = {
