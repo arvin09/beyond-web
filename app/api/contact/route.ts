@@ -18,7 +18,7 @@ export async function POST(request: NextRequest, response:NextResponse) {
 
   const body = await request.json()
 
-  const mailData = {
+  const mailData:any = {
     from: process.env.NODEMAILER_EMAIL,
     to: process.env.NODEMAILER_EMAIL,
     subject: `Enquire for a villa`,
@@ -31,18 +31,35 @@ export async function POST(request: NextRequest, response:NextResponse) {
           <b>Regards,</b><br>
           <b>Goa Beyond</b>
           `,
+    info: null,
+    err: null
   }
 
   console.log(mailData)
 
   // TODO: uncomment when production ready
-  transporter.sendMail(mailData, function (err, info) {
-    if(err)
-      console.log(err)
-    else
-      console.log("Email sent", info)
-      return true
-  })
+  // transporter.sendMail(mailData, function (err, info) {
+  //     if (err) {
+  //       mailData.err = err;
+  //       console.log(err);
+  //     }
+  //     else {
+  //       console.log("Email sent", info);
+  //       mailData.info = info;
+  //     }
+  //     return true;
+  //   })
 
-  return new Response(JSON.stringify(mailData));
+    const info = await transporter.sendMail({
+      from: `"Goa Beyond" <${process.env.NODEMAILER_EMAIL}>`, // sender address
+      to: `${process.env.NODEMAILER_EMAIL}, ${process.env.NODEMAILER_EMAIL}`, // list of receivers
+      subject: "Hello ✔", // Subject line
+      text: "Hello world?", // plain text body
+      html: "<b>Hello world?</b>", // html body
+    });
+
+    console.log(info);
+  
+
+  return new Response(JSON.stringify(info));
 }
