@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import 'dotenv/config'
+import "dotenv/config";
 
 export async function GET(request: NextRequest) {
-  return new Response('OK');
+  return new Response("OK");
 }
 
-export async function POST(request: NextRequest, response:NextResponse) {
+export async function POST(request: NextRequest, response: NextResponse) {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -14,13 +14,13 @@ export async function POST(request: NextRequest, response:NextResponse) {
       pass: process.env.NODEMAILER_PWD,
     },
     secure: true,
-  })
+  });
 
-  const body = await request.json()
+  const body = await request.json();
 
-  const mailData:any = {
-    from: process.env.NODEMAILER_EMAIL,
-    to: process.env.NODEMAILER_EMAIL,
+  const info = await transporter.sendMail({
+    from: `"Goa Beyond" <${process.env.NODEMAILER_EMAIL}>`, 
+    to: `${process.env.NODEMAILER_EMAIL}, ${process.env.NODEMAILER_EMAIL}`,
     subject: `Enquire for a villa`,
     html: `<b><u>Customer Details</u></b><br><br>
           <b>Name: </b>${body.name}<br>
@@ -31,35 +31,9 @@ export async function POST(request: NextRequest, response:NextResponse) {
           <b>Regards,</b><br>
           <b>Goa Beyond</b>
           `,
-    info: null,
-    err: null
-  }
+  });
 
-  console.log(mailData)
+  console.log(info);
 
-  // TODO: uncomment when production ready
-  // transporter.sendMail(mailData, function (err, info) {
-  //     if (err) {
-  //       mailData.err = err;
-  //       console.log(err);
-  //     }
-  //     else {
-  //       console.log("Email sent", info);
-  //       mailData.info = info;
-  //     }
-  //     return true;
-  //   })
-
-    const info = await transporter.sendMail({
-      from: `"Goa Beyond" <${process.env.NODEMAILER_EMAIL}>`, // sender address
-      to: `${process.env.NODEMAILER_EMAIL}, ${process.env.NODEMAILER_EMAIL}`, // list of receivers
-      subject: "Hello ✔", // Subject line
-      text: "Hello world?", // plain text body
-      html: "<b>Hello world?</b>", // html body
-    });
-
-    console.log(info);
-  
-
-  return new Response(JSON.stringify(info));
+  return new Response('Success');
 }
