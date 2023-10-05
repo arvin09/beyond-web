@@ -1,31 +1,31 @@
 "use client";
 import { MinusCircleIcon, PlusCircleIcon } from "@heroicons/react/24/outline";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 type CounterProps = {
   min?: number;
   max?: number;
+  value?: number;
   onChangeValue: any;
 };
-const Counter = ({ min = 0, max = 20, onChangeValue }: CounterProps) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(()=> {
-    onChangeValue(count);
-  },[count])
+const Counter = ({ min = 0, max = 20, value = 0, onChangeValue }: CounterProps) => {
+  const [count, setCount] = useState(value);
 
   const handleCount = (e: any) => {
     const { id } = e.target;
     if (id === "add") {
       if (count < max) {
-        setCount(count + 1);
+        setCount(count+1);
+        onChangeValue(count+1);
       }
     }
 
     if (id === "remove") {
       if (count > min) {
         setCount(count - 1);
+        onChangeValue(count-1);
       }
     }
+    
   };
 
   return (

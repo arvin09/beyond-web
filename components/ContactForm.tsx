@@ -3,43 +3,38 @@ import React, { FormEventHandler, useState } from "react";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
-  const [isFormValid, setIsFormValid] = useState(true);
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    const form:any = document.getElementById('contact-form');
-    if(form?.checkValidity()) {
-        setIsFormValid(true)
-        let data = {
-            name,
-            phone,
-            message,
-          };
-          console.log("Sending");
-          fetch("/api/contact", {
-            method: "POST",
-            headers: {
-              Accept: "application/json, text/plain, */*",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-          }).then((res) => {
-            console.log("Response received");
-            if (res.status === 200) {
-              console.log("Response succeeded!");
-              setSubmitted(true);
-              setName("");
-              setPhone("");
-              setMessage("");
-            }
-          });
-    } else {
-        setIsFormValid(false)
+    const form: any = document.getElementById("contact-form");
+    if (form?.checkValidity()) {
+      let data = {
+        name,
+        phone,
+        message,
+        type: "contact"
+      };
+      console.log("Sending");
+      fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }).then((res) => {
+        console.log("Response received");
+        if (res.status === 200) {
+          console.log("Response succeeded!");
+          setName("");
+          setPhone("");
+          setMessage("");
+        }
+      });
     }
-    
   };
 
   return (
@@ -52,7 +47,8 @@ const ContactForm = () => {
           <header className="pb-3">
             {submitted && (
               <div className="text-green-500 text-center font-semibold">
-                Thanks for sharing your details, we will get in touch with you soon!!
+                Thanks for sharing your details, we will get in touch with you
+                soon!!
               </div>
             )}
             <label>
@@ -73,11 +69,10 @@ const ContactForm = () => {
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
-                
               />
               <span className="mt-2 hidden text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
-            Your full name should at least have 3 letters
-          </span>
+                Your full name should at least have 3 letters
+              </span>
               <label
                 htmlFor="floating_first_name"
                 className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 after:content-['*'] after:ml-0.5 after:text-red-500 peer-focus:invalid:border-red-600 "
@@ -103,9 +98,9 @@ const ContactForm = () => {
               }}
             />
             <span className="mt-2 hidden text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
-            Your mobile number should be 10 digit only
-          </span>
-        
+              Your mobile number should be 10 digit only
+            </span>
+
             <label
               htmlFor="floating_email"
               className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 after:content-['*'] after:ml-0.5 after:text-red-500"

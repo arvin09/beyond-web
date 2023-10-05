@@ -2,14 +2,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Counter } from ".";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
+
 type SelectFilterProps = {
   placeHolder?: string;
+  adults?: number;
+  kids?: number;
+  onValueChange?: any;
 };
 
-const SelectFilter = ({}: SelectFilterProps) => {
+const SelectFilter = ({
+  placeHolder = "Select Guests",
+  adults,
+  kids,
+  onValueChange,
+}: SelectFilterProps) => {
   const [show, setShow] = useState(false);
-  const [adult, setAdultValue] = useState(0);
-  const [kid, setKidValue] = useState(0);
+  const [adult, setAdultValue] = useState(adults);
+  const [kid, setKidValue] = useState(kids);
   const InputRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -31,31 +40,52 @@ const SelectFilter = ({}: SelectFilterProps) => {
     };
   }, [InputRef, setShow]);
 
+  const updateData = (name: string, value: number) => {
+    if (name == "Adults") {
+      setAdultValue(value);
+      onValueChange(`${value} Adults, ${kid} Kids`);
+    } else {
+      setKidValue(value);
+      onValueChange(`${adult} Adults, ${value} Kids`);
+    }
+  };
+
   return (
     <div className=" relative">
       <div
         ref={InputRef}
         onClick={() => setShow(true)}
-        className="cursor-pointer flex justify-between"
+        className="cursor-pointer flex justify-between peer"
       >
-        <div>{!adult && !kid ? "Select Guest" : `${adult} Adults, ${kid} Kids`}</div>
-        <div className="pt-1"><ChevronDownIcon className="h-4 w-4"/></div>
+        <div>
+          {!adult && !kid ? placeHolder : `${adult} Adults, ${kid} Kids`}
+        </div>
+        <div className="pt-1">
+          <ChevronDownIcon className="h-4 w-4" />
+        </div>
       </div>
       <div className={show ? "block" : "hidden"}>
         <div
           ref={InputRef}
-          className="flex-col absolute bg-white p-5 border border-gray-200 shadow-lg z-10 w-64 mt-6 -ml-5 rounded-b-lg"
+          className="flex-col absolute bg-white p-5 border border-gray-200 shadow-lg z-10 w-full mt-6  rounded-b-lg"
         >
           <div className="flex border-b justify-between pb-2">
             <div className="font-semibold">Adults</div>
-            <Counter onChangeValue={(val: number) => setAdultValue(val)} />
+            <Counter
+              value={adult}
+              onChangeValue={(val: number) => updateData("Adults", val)}
+            />
           </div>
           <div className="flex justify-between pt-2">
             <div className="font-semibold">Kids</div>
-            <Counter onChangeValue={(val: number) => setKidValue(val)} />
+            <Counter
+              value={kid}
+              onChangeValue={(val: number) => updateData("Kids", val)}
+            />
           </div>
-          <div className="text-[10px] text-gray-400 pointer-events-none">(Below the age of 5)</div>
-          
+          <div className="text-[10px] text-gray-400 pointer-events-none">
+            (Below the age of 5)
+          </div>
         </div>
       </div>
     </div>

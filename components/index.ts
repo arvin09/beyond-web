@@ -9,6 +9,7 @@ import DatePickerFilter from "./DatePickerFilter";
 import SelectFilter from "./SelectFilter";
 import Counter from "./Counter";
 import ContactForm from "./ContactForm";
+import EnquireForm from "./EnquireForm";
 
 export {
     Navbar,
@@ -21,5 +22,6 @@ export {
     DatePickerFilter,
     SelectFilter,
     Counter,
-    ContactForm
+    ContactForm,
+    EnquireForm
 }
