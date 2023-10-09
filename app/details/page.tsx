@@ -63,11 +63,12 @@ const details = () => {
                 <span className="p-1 mr-2"><Swimmer size='16px' color="gray" /></span>
                 <span>Private Pool</span>
               </li>
-              <li className="flex justify-start w-full">
+              
+            </ul>
+            <div className="flex justify-start w-full pl-4">
                 <span className="p-1 mr-2"><CalendarCheck size='16px' color="gray" /></span>
                 <span className="absolute pl-8">Check In - 2 PM | Check Out - 11 AM</span>
-              </li>
-            </ul>
+              </div>
           </div>
           {/* Bedroom Details */}
           <div className="py-3 border-b">

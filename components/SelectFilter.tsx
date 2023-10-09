@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 import { Counter } from ".";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
@@ -10,16 +10,26 @@ type SelectFilterProps = {
   onValueChange?: any;
 };
 
-const SelectFilter = ({
+/* eslint-disable react/display-name */
+const SelectFilter = forwardRef(({
   placeHolder = "Select Guests",
   adults,
   kids,
   onValueChange,
-}: SelectFilterProps) => {
+}: SelectFilterProps, ref) => {
   const [show, setShow] = useState(false);
   const [adult, setAdultValue] = useState(adults);
   const [kid, setKidValue] = useState(kids);
   const InputRef = useRef<HTMLDivElement>(null);
+  const AdultCounterRef = useRef<any>(null);
+  const KidCounterRef = useRef<any>(null);
+
+  useImperativeHandle(ref, () => ({
+    resetGuestFilter () {
+        AdultCounterRef.current.resetCounter(adults);
+        KidCounterRef.current.resetCounter(kids);
+    }
+  }));
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -72,6 +82,7 @@ const SelectFilter = ({
           <div className="flex border-b justify-between pb-2">
             <div className="font-semibold">Adults</div>
             <Counter
+              ref={AdultCounterRef}
               value={adult}
               onChangeValue={(val: number) => updateData("Adults", val)}
             />
@@ -79,6 +90,7 @@ const SelectFilter = ({
           <div className="flex justify-between pt-2">
             <div className="font-semibold">Kids</div>
             <Counter
+              ref={KidCounterRef}
               value={kid}
               onChangeValue={(val: number) => updateData("Kids", val)}
             />
@@ -90,6 +102,6 @@ const SelectFilter = ({
       </div>
     </div>
   );
-};
+});
 
 export default SelectFilter;

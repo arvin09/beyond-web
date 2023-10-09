@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { SelectFilter } from ".";
 
 const EnquireForm = () => {
@@ -11,6 +11,8 @@ const EnquireForm = () => {
   const [name, setName] = useState("");
   const [guestCount, setGuestCount] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
+  const SelectFilterRef = useRef<any>(null);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -36,9 +38,11 @@ const EnquireForm = () => {
       console.log("Response received");
       if (res.status === 200) {
         console.log("Response succeeded!");
+        setSubmitted(true);
         setDefaultDates();
         setName("");
         setPhone("");
+        SelectFilterRef.current.resetGuestFilter();
       }
     });
   };
@@ -75,7 +79,8 @@ const EnquireForm = () => {
       >
         <form id="equire-form" noValidate className="group">
           <header className="pb-2">
-            <div className="">
+            <div>
+            {submitted && (<div className="text-teal-500 text-center"> Thanks for sharing your details, we will get back to you soon!!</div>)}
               <div>
                 <span className="text-xs text-black-300">Starts from </span>
                 {/* <span className="line-through text-gray-500">₹ 42000</span> */}
@@ -125,8 +130,8 @@ const EnquireForm = () => {
               </label>
             </div>
           </div>
-          <div className="z-0 w-80 mb-6 group text-sm p-2 border-b-2 border-gray-300">
-            <SelectFilter adults={adults} kids={kids} onValueChange={setGuestCount}/>
+          <div className="z-0 w-full mb-6 group text-sm p-2 border-b-2 border-gray-300">
+            <SelectFilter ref={SelectFilterRef} adults={adults} kids={kids} onValueChange={setGuestCount}/>
           </div>
           <div className="grid md:gap-6">
             <div className="relative z-0 w-full mb-6 group">

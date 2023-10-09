@@ -46,7 +46,7 @@ const ContactForm = () => {
         <form id="contact-form" noValidate className="group">
           <header className="pb-3">
             {submitted && (
-              <div className="text-green-500 text-center font-semibold">
+              <div className="text-teal-500 text-center">
                 Thanks for sharing your details, we will get in touch with you
                 soon!!
               </div>
