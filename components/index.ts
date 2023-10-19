@@ -10,6 +10,7 @@ import SelectFilter from "./SelectFilter";
 import Counter from "./Counter";
 import ContactForm from "./ContactForm";
 import EnquireForm from "./EnquireForm";
+import Carousal from "./Carousal";
 
 export {
     Navbar,
@@ -23,5 +24,6 @@ export {
     SelectFilter,
     Counter,
     ContactForm,
-    EnquireForm
+    EnquireForm,
+    Carousal
 }

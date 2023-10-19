@@ -1,26 +1,9 @@
-"use client";
 import React from "react";
 import Image from "next/image";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import { LockClosedIcon, MusicalNoteIcon, PuzzlePieceIcon,  TrashIcon, UserGroupIcon, WifiIcon} from "@heroicons/react/24/outline";
-import { BreadSlice, Swimmer, CalendarCheck, Soap, MugHotAlt, Bed } from "react-flaticons";
-import { EnquireForm } from "@/components";
+import { LockClosedIcon, MusicalNoteIcon, PuzzlePieceIcon, TrashIcon, UserGroupIcon, WifiIcon, CalendarDaysIcon } from "@heroicons/react/24/outline";
+import { Carousal, EnquireForm } from "@/components";
 
 const details = () => {
-  const handleNavClick = (button: string) => {
-    const carousal = document.querySelector(".carousal");
-    const images = document.querySelectorAll(".carousal .card-container");
-    const scrollWidth = images[0].clientWidth + 50;
-
-    if (carousal) {
-      if (button === "next") {
-        carousal.scrollLeft += scrollWidth;
-      } else {
-        carousal.scrollLeft -= scrollWidth;
-      }
-    }
-  };
-
   return (
     <div>
       <div
@@ -50,9 +33,16 @@ const details = () => {
           {/* House Activities  */}
           <div className="py-3 border-b">
             <ul className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-3">
-              
+
               <li className="flex justify-start">
-                <span className="p-1 mr-2"><BreadSlice  size='16px' color="gray" /></span>
+                <span className="mr-2 mt-1">
+                  <Image
+                    src="/bread-slice.svg"
+                    alt=""
+                    width={16}
+                    height={16}
+                  />
+                </span>
                 <span>Complimentary Breakfast</span>
               </li>
               <li className="flex justify-start">
@@ -60,89 +50,30 @@ const details = () => {
                 <span>Unlimited WiFi</span>
               </li>
               <li className="flex justify-start">
-                <span className="p-1 mr-2"><Swimmer size='16px' color="gray" /></span>
+                <span className="mr-2 mt-1">
+                  <Image
+                    src="/swimmer.svg"
+                    alt=""
+                    width={16}
+                    height={16}
+                  />
+                </span>
                 <span>Private Pool</span>
               </li>
-              
+
             </ul>
             <div className="flex justify-start w-full pl-4">
-                <span className="p-1 mr-2"><CalendarCheck size='16px' color="gray" /></span>
-                <span className="absolute pl-8">Check In - 2 PM | Check Out - 11 AM</span>
-              </div>
+              <span className="py-1 pr-2"><CalendarDaysIcon className="h-4 w-4 text-black" /></span>
+              <span >Check In - 2 PM | Check Out - 11 AM</span>
+            </div>
           </div>
           {/* Bedroom Details */}
-          <div className="py-3 border-b">
-            <div className="pb-2 flex justify-between">
-              <div className="text-2xl ">Bedroom Details</div>
-              <div className="text-lg">
-                <button
-                  className="mr-8 shadow-lg rounded-3xl bg-teal-500 p-2 hover:bg-teal-800"
-                  onClick={() => handleNavClick("prev")}
-                >
-                  <ChevronLeftIcon
-                    title="Previous"
-                    className="h-5 w-5 text-white"
-                  />
-                </button>
-                <button
-                  className="shadow-lg rounded-3xl bg-teal-500 p-2 hover:bg-teal-800"
-                  onClick={() => handleNavClick("next")}
-                >
-                  <ChevronRightIcon title="Next" className="h-5 w-5 text-white">
-                    Next
-                  </ChevronRightIcon>
-                </button>
-              </div>
-            </div>
-            <div className="flex justify-between overflow-x-hidden gap-4 scroll-smooth carousal">
-              <div className="card-container bg-white border border-gray-200 rounded-lg shadow-lg md:basis-1/3 shrink-0">
-                <Image
-                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4 w-full"
-                  src="/hero.jfif"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  //   style={{ width: '100%', height: 'auto' }} // optional
-                  alt=""
-                />
-              </div>
-              <div className="card-container bg-white border border-gray-200 rounded-lg shadow-lg md:basis-1/3 shrink-0">
-                <Image
-                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4 w-full"
-                  src="/hero.jfif"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  alt=""
-                />
-              </div>
-              <div className="card-container bg-white border border-gray-200 rounded-lg shadow-lg md:basis-1/3 shrink-0">
-                <Image
-                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4 w-full"
-                  src="/hero.jfif"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  alt=""
-                />
-              </div>
-              <div className="card-container bg-white border border-gray-200 rounded-lg shadow-lg md:basis-1/3 shrink-0">
-                <Image
-                  className="object-cover rounded-t-lg md:h-64 md:rounded-none md:rounded-all p-4 w-full"
-                  src="/hero.jfif"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  alt=""
-                />
-              </div>
-            </div>
-          </div>
+          <Carousal />
           {/* House Activities  */}
           <div className="py-3 border-b">
             <h1 className="text-2xl">In House Activities</h1>
             <ul className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
-              
+
               <li className="flex justify-start">
                 <span className="border border-gray-950 rounded-3xl p-1 mr-2"><PuzzlePieceIcon className="h-4 w-4 text-black" /></span>
                 <span>Board Games</span>
@@ -153,12 +84,12 @@ const details = () => {
               </li>
               <li className="flex justify-start">
                 <span className="mr-2">
-                    <Image 
-                     src="/oven.svg" 
-                     alt=""
-                     width={26}
-                     height={26}
-                    />
+                  <Image
+                    src="/oven.svg"
+                    alt=""
+                    width={26}
+                    height={26}
+                  />
                 </span>
                 <span>Oven</span>
               </li>
@@ -167,8 +98,13 @@ const details = () => {
                 <span>Security</span>
               </li>
               <li className="flex justify-start">
-              <span className="border border-gray-950 rounded-3xl p-1 mr-2">
-                    <Bed  size='16px' color="gray" />
+                <span className="p-1 border border-gray-950 rounded-3xl mr-2">
+                  <Image
+                    src="/bed-alt.svg"
+                    alt=""
+                    width={16}
+                    height={16}
+                  />
                 </span>
                 <span>Sheets & Towels</span>
               </li>
@@ -178,18 +114,23 @@ const details = () => {
               </li>
               <li className="flex justify-start">
                 <span className="mr-2">
-                    <Image 
-                     src="/gas-hob.svg" 
-                     alt=""
-                     width={26}
-                     height={26}
-                    />
+                  <Image
+                    src="/gas-hob.svg"
+                    alt=""
+                    width={26}
+                    height={26}
+                  />
                 </span>
                 <span>Gas Hob</span>
               </li>
               <li className="flex justify-start">
-              <span className="border border-gray-950 rounded-3xl p-1 mr-2">
-                    <MugHotAlt  size='16px' color="gray" />
+                <span className="p-1 border border-gray-950 rounded-3xl mr-2">
+                  <Image
+                    src="/mug-hot.svg"
+                    alt=""
+                    width={16}
+                    height={16}
+                  />
                 </span>
                 <span>Coffee Machine</span>
               </li>
@@ -198,8 +139,13 @@ const details = () => {
                 <span>Caretaker</span>
               </li>
               <li className="flex justify-start">
-                <span className="border border-gray-950 rounded-3xl p-1 mr-2">
-                    <Soap  size='16px' color="gray" />
+                <span className="p-1 border border-gray-950 rounded-3xl mr-2">
+                  <Image
+                    src="/soap.svg"
+                    alt=""
+                    width={16}
+                    height={16}
+                  />
                 </span>
                 <span>Toiletries</span>
               </li>
