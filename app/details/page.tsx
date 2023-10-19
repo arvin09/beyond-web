@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { LockClosedIcon, MusicalNoteIcon, PuzzlePieceIcon, TrashIcon, UserGroupIcon, WifiIcon, CalendarDaysIcon } from "@heroicons/react/24/outline";
+import { LockClosedIcon, MusicalNoteIcon, PuzzlePieceIcon, TrashIcon, UserGroupIcon, WifiIcon, CalendarDaysIcon, FireIcon } from "@heroicons/react/24/outline";
 import { Carousal, EnquireForm } from "@/app/components";
 
 const details = () => {
@@ -75,11 +75,11 @@ const details = () => {
             <ul className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
 
               <li className="flex justify-start">
-                <span className="border border-gray-950 rounded-3xl p-1 mr-2"><PuzzlePieceIcon className="h-4 w-4 text-black" /></span>
+                <span><PuzzlePieceIcon className="h-6 w-6 text-black border border-gray-950 rounded-3xl p-1 mr-2"  /></span>
                 <span>Board Games</span>
               </li>
               <li className="flex justify-start">
-                <span className="border border-gray-950 rounded-3xl p-1 mr-2"><MusicalNoteIcon className="h-4 w-4 text-black" /></span>
+                <span><MusicalNoteIcon className="h-6 w-6 text-black border border-gray-950 rounded-3xl p-1 mr-2"  /></span>
                 <span>Music Player</span>
               </li>
               <li className="flex justify-start">
@@ -125,14 +125,7 @@ const details = () => {
                 <span>Gas Hob</span>
               </li>
               <li className="flex justify-start">
-                <span className="p-1 border border-gray-950 rounded-3xl mr-2">
-                  <Image
-                    src="/mug-hot.svg"
-                    alt=""
-                    width={16}
-                    height={16}
-                  />
-                </span>
+              <span className=""><FireIcon className="h-6 w-6 text-black border border-gray-950 rounded-3xl p-1 mr-2" /></span>
                 <span>Coffee Machine</span>
               </li>
               <li className="flex justify-start">
