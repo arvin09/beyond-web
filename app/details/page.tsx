@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { LockClosedIcon, MusicalNoteIcon, PuzzlePieceIcon, TrashIcon, UserGroupIcon, WifiIcon, CalendarDaysIcon } from "@heroicons/react/24/outline";
-import { Carousal, EnquireForm } from "@/components";
+import { Carousal, EnquireForm } from "@/app/components";
 
 const details = () => {
   return (
@@ -98,19 +98,20 @@ const details = () => {
                 <span>Security</span>
               </li>
               <li className="flex justify-start">
-                <span className="p-1 border border-gray-950 rounded-3xl mr-2">
+                <span >
                   <Image
+                  className="p-1 border border-gray-950 rounded-3xl mr-2"
                     src="/bed-alt.svg"
                     alt=""
-                    width={16}
-                    height={16}
+                    width={26}
+                    height={26}
                   />
                 </span>
                 <span>Sheets & Towels</span>
               </li>
               <li className="flex justify-start">
-                <span className="border border-gray-950 rounded-3xl p-1 mr-2"><TrashIcon className="h-4 w-4 text-black" /></span>
-                <span>Housekeeping</span>
+                <span className=""><TrashIcon className="h-6 w-6 text-black border border-gray-950 rounded-3xl p-1 mr-2" /></span>
+                <span>House Keeping</span>
               </li>
               <li className="flex justify-start">
                 <span className="mr-2">

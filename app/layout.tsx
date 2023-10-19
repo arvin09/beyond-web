@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer } from "@/app/components";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function RootLayout({
         {children}
         <Footer></Footer> 
       </body>
-      <Script
+      {/* <Script
         strategy="afterInteractive"
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-NNE2C915TF"
@@ -32,7 +32,7 @@ export default function RootLayout({
           gtag('js', new Date());
           gtag('config', 'G-NNE2C915TF');
         `}
-      </Script>
+      </Script> */}
     </html>
   );
 }

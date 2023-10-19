@@ -1,6 +1,6 @@
 
-import { Card, ContactForm, Filter } from "@/components";
-import { villaListing } from "@/constants";
+import { Card, ContactForm, Filter } from "@/app/components";
+import { villaListing } from "@/app/constants";
 export default function listing() {
   return (
     <div>

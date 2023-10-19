@@ -1,4 +1,4 @@
-import { Featured, Hero, Testimonial } from "@/components";
+import { Featured, Hero, Testimonial } from "@/app/components";
 
 export default function Home() {
   return (
